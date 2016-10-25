@@ -11,4 +11,4 @@ umask(0);
 
 $product = new Ainstainer_TechTalk_Model_Product();
 
-$product->sayHello();
+echo $product->sayHello();

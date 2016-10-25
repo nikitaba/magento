@@ -10,6 +10,6 @@ class Ainstainer_TechTalk_Model_Product
 {
 
     public function sayHello() {
-        echo "Hello world!";
+        return "Hello world!";
     }
 }
