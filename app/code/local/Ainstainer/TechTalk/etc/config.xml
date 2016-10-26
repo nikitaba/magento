@@ -1,10 +1,20 @@
 <?xml version="1.0"?>
 <config>
+    <frontend>
+        <layout>
+            <updates>
+                <techtalk>
+                    <file>techtalk.xml</file>
+                </techtalk>
+            </updates>
+        </layout>
+    </frontend>
     <global>
         <models>
-            <TechTalk>
+            <techtalk>
+                <version>1.0.0</version>
                 <class>Ainstainer_TechTalk_Model</class>
-            </TechTalk>
+            </techtalk>
         </models>
     </global>
 </config>

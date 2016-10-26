@@ -7,8 +7,8 @@ Mage::app('admin')->setUseSessionInUrl(false);
 
 umask(0);
 
-//echo Mage::getModel('techtalk/techLogic')->sayHello();
+echo Mage::getModel('techtalk/techLogic')->sayHello();
 
-$product = new Ainstainer_TechTalk_Model_Product();
-
-echo $product->sayHello();
+//$product = new Ainstainer_TechTalk_Model_TechLogic();
+//
+//echo $product->sayHello();
