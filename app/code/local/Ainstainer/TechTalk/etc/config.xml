@@ -11,7 +11,6 @@
                 <class>Ainstainer_TechTalk_Model</class>
             </techtalk>
         </models>
-<<<<<<< HEAD
         <blocks>
             <techtalk>
                 <class>Ainstainer_TechTalk_Block</class>
@@ -41,7 +40,4 @@
             </updates>
         </layout>
     </frontend>
-=======
-    </global>
->>>>>>> 5a0855fccfa5bb9749004b58bcf8b6913715b9d7
 </config>
