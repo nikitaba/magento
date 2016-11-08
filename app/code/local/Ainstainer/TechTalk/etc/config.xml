@@ -5,32 +5,6 @@
             <version>1.0.0</version>
         </techtalk>
     </modules>
-    <global>
-        <models>
-            <techtalk>
-                <class>Ainstainer_TechTalk_Model</class>
-                <resourceModel>techtalk_resource</resourceModel>
-            </techtalk>
-            <techtalk_resource>
-                <class>Ainstainer_TechTalk_Model_Resource</class>
-                <entities>
-                    <contact>
-                        <table>ain_contact</table>
-                    </contact>
-                </entities>
-            </techtalk_resource>
-        </models>
-        <blocks>
-            <techtalk>
-                <class>Ainstainer_TechTalk_Block</class>
-            </techtalk>
-        </blocks>
-        <helpers>
-            <techtalk>
-                <class>Ainstainer_TechTalk_Helper</class>
-            </techtalk>
-        </helpers>
-    </global>
     <frontend>
         <routers>
             <magetalk>
@@ -49,4 +23,48 @@
             </updates>
         </layout>
     </frontend>
+    <global>
+        <blocks>
+            <techtalk>
+                <class>Ainstainer_TechTalk_Block</class>
+            </techtalk>
+        </blocks>
+        <helpers>
+            <techtalk>
+                <class>Ainstainer_TechTalk_Helper</class>
+            </techtalk>
+        </helpers>
+        <models>
+            <techtalk>
+                <class>Ainstainer_TechTalk_Model</class>
+                <resourceModel>techtalk_resource</resourceModel>
+            </techtalk>
+            <techtalk_resource>
+                <class>Ainstainer_TechTalk_Model_Resource</class>
+                <entities>
+                    <contact>
+                        <table>ain_contact</table>
+                    </contact>
+                </entities>
+            </techtalk_resource>
+        </models>
+        <resources>
+            <tech_setup>
+                <setup>
+                    <module>Ainstainer_TechTalk</module>
+                </setup>
+            </tech_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ain_contacts before="Mage_Adminhtml">Ainstainer_TechTalk_Adminhtml</ain_contacts>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 </config>
