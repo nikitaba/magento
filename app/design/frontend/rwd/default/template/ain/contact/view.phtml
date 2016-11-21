@@ -9,8 +9,13 @@
     <li><?= $this->getRequestRecord()->getComment() ?></li>
 </ul>
 <br>
-<div>OTHER COMMENTS:</div>
-<ul>
-    <li><?= $this->getRequestRecord()->getName() ?> said:</li>
-    <li><?= $this->getRequestRecord()->getComment() ?></li>
+<?php $collection = $this->getRequestCollection()->getItems(); ?>
+<h3>OTHER COMMENTS:</h3>
+<ul class="<?= $this->getData('class'); ?>">
+    <?php foreach ($collection as $item): ?>
+    <li><?= $item->getName() ?> said:</li>
+    <li><?= $item->getComment() ?></li>
+    <?php endforeach; ?>
 </ul>
+<br>
+<?= $this->getChildHtml('ain.cookies.notice')?>

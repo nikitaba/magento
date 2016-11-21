@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<layout>
-    <magetalk_index_index>
-        <reference name="content">
-            <block type="techtalk/view" name="techtalk.hello" template="ain/form.phtml"/>
-        </reference>
-    </magetalk_index_index>
-</layout>

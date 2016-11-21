@@ -7,6 +7,13 @@
     </modules>
     <frontend>
         <routers>
+            <contact>
+                <use>standard</use>
+                <args>
+                    <module>Ainstainer_TechTalk</module>
+                    <frontName>contact</frontName>
+                </args>
+            </contact>
             <magetalk>
                 <use>standard</use>
                 <args>
@@ -18,7 +25,7 @@
         <layout>
             <updates>
                 <techtalk>
-                    <file>aincontact.xml</file>
+                    <file>magetalk.xml</file>
                 </techtalk>
             </updates>
         </layout>

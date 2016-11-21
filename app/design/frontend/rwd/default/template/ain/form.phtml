@@ -3,11 +3,10 @@
  * @var Ainstainer_TechTalk_Block_View $this
  */
 ?>
-<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="page-title">
     <h1><?php echo Mage::helper('contacts')->__('Leave your comment') ?></h1>
 </div>
-<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
+<form action="<?php echo $this->getUrl('magetalk/index/post'); ?>" id="contactForm" method="post" class="scaffold-form">
     <div class="fieldset">
         <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
         <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
@@ -17,6 +16,12 @@
                     <label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name') ?></label>
                     <div class="input-box">
                         <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
                     </div>
                 </div>
             </li>
@@ -38,14 +43,3 @@
     var contactForm = new VarienForm('contactForm', true);
     //]]>
 </script>
-<br>
-<ul>
-    <li><?= $this->getRequestRecord()->getName() ?> said:</li>
-    <li><?= $this->getRequestRecord()->getComment() ?></li>
-</ul>
-<br>
-<div>OTHER COMMENTS:</div>
-<ul>
-    <li><?= $this->getRequestRecord()->getName() ?> said:</li>
-    <li><?= $this->getRequestRecord()->getComment() ?></li>
-</ul>

@@ -36,7 +36,11 @@
 <?php if($_menu): ?>
     <nav id="nav">
         <ol class="nav-primary">
+
             <?php echo $_menu ?>
+            <div id="header-search" class="skip-content">
+                <?php echo $this->getChildHtml('topnavSearch') ?>
+            </div>
         </ol>
     </nav>
 <?php endif ?>
