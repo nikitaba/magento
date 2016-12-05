@@ -28,66 +28,65 @@ class Ainstainer_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Contro
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_category_blogcategory_edit'));
         $this->renderLayout();
     }
-//
-//    public function saveAction()
-//    {
-//        try {
-//            $id = $this->getRequest()->getParam('category_id');
-//            $blogpost = Mage::getModel('blog/category')->load($id);
-//            $blogpost
-//                ->setData($this->getRequest()->getParams())
-//                ->setCreatedAt(Mage::app()->getLocale()->date())
-//                ->save();
-//
-//            if(!$blogpost->getId()){
-//                Mage::getSingleton('adminhtml/session')->addError('Cannot save the blogpost');
-//            }
-//
-//        } catch(Exception $exception) {
-//            Mage::logException($exception);
-//            Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
-//            Mage::getSingleton('adminhtml/session')->setBlockObject($blogpost->getData());
-//        }
-//
-//        Mage::getSingleton('adminhtml/session')->addSuccess('Blogpost was saved successfully');
-//
-//        $this->_redirect('*/*/'.$this->getRequest()->getParam('back'.'index'), array('category_id'=>$blogpost->getId()));
-//    }
-//
-//    public function deleteAction()
-//    {
-//        $blogpost = Mage::getModel('blog/category')
-//            ->setId($this->getRequest()->getParam('category_id'))
-//            ->delete();
-//
-//        if($blogpost->getId()){
-//            Mage::getSingleton('adminhtml/session')->addSuccess('Blogpost was deleted successfully!');
-//        }
-//
-//        $this->_redirect('*/*/');
-//    }
 
-//    public function massDeleteAction()
-//    {
-//        $blogposts = $this->getRequest()->getParams();
-//
-//        try {
-//            $blogposts = Mage::getModel('blog/blogpost')
-//                ->getCollection()
-//                ->addFieldTofilter('blockpost_id', array('in' => $blogposts['massaction']));
-//
-//            foreach ($blogposts as $blogpost) {
-//                $blogpost->delete();
-//            }
-//
-//        } catch(Exception $exception) {
-//            Mage::logException($exception);
-//            Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
-//            return $this->_redirect('*/*/');
-//        }
-//
-//        Mage::getSingleton('adminhtml/session')->addSuccess('Blogposts were deleted successfully!');
-//
-//        return $this->_redirect('*/*/');
-//    }
+    public function saveAction()
+    {
+        try {
+            $id = $this->getRequest()->getParam('category_id');
+            $category = Mage::getModel('blog/category')->load($id);
+            $category
+                ->setData($this->getRequest()->getParams())
+                ->save();
+
+            if(!$category->getId()){
+                Mage::getSingleton('adminhtml/session')->addError('Cannot save the category');
+            }
+
+        } catch(Exception $exception) {
+            Mage::logException($exception);
+            Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
+            Mage::getSingleton('adminhtml/session')->setBlockObject($category->getData());
+        }
+
+        Mage::getSingleton('adminhtml/session')->addSuccess('Category was saved successfully');
+
+        $this->_redirect('*/*/'.$this->getRequest()->getParam('back'.'index'), array('category_id'=>$category->getId()));
+    }
+
+    public function deleteAction()
+    {
+        $category = Mage::getModel('blog/category')
+            ->setId($this->getRequest()->getParam('category_id'))
+            ->delete();
+
+        if($category->getId()){
+            Mage::getSingleton('adminhtml/session')->addSuccess('Category was deleted successfully!');
+        }
+
+        $this->_redirect('*/*/');
+    }
+
+    public function massDeleteAction()
+    {
+        $categories = $this->getRequest()->getParams();
+
+        try {
+            $categories = Mage::getModel('blog/blogpost')
+                ->getCollection()
+                ->addFieldTofilter('category_id', array('in' => $categories['massaction']));
+
+            foreach ($categories as $category) {
+                $category->delete();
+            }
+
+        } catch(Exception $exception) {
+            Mage::logException($exception);
+            Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
+            return $this->_redirect('*/*/');
+        }
+
+        Mage::getSingleton('adminhtml/session')->addSuccess('Categories were deleted successfully!');
+
+        return $this->_redirect('*/*/');
+    }
 }
