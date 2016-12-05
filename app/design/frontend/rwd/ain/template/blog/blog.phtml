@@ -1,0 +1,28 @@
+<style>
+
+    .category {
+        width: 700px;
+        margin: 5px auto;
+        padding: 10px;
+        border: 1px dotted;
+    }
+
+    h3 {
+        width: 700px;
+        margin: 5px auto;
+        padding: 10px;
+    }
+
+</style>
+
+<?php $collection = $this->getRequestCollection()->getItems(); ?>
+<h3>CATEGORIES</h3>
+<ul class="<?= $this->getData('class'); ?>">
+    <?php foreach ($collection as $categoryitem): ?>
+        <div class="category">
+            <li><a href="<?= $this->getUrl('blog/category/view', ['id'=>$categoryitem->getCategory_id()]); ?>"><?= $categoryitem->getName() ?></a></li>
+            <li><?= $categoryitem->getDescription() ?></li>
+        </div>
+    <?php endforeach; ?>
+</ul>
+<br>

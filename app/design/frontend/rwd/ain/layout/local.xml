@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="header">
+            <action method="unsetChild">
+                <id>topSearch</id>
+            </action>
+        </reference>
+        <reference name="footer">
+            <remove name="footer_links2"/>
+            <block type="cms/block" name="footer_links2_static">
+                <action method="setBlockId">
+                    <id>footer_links</id>
+                </action>
+            </block>
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+        </reference>
+    </default>
+    <magetalk_index_index>
+        <reference name="content">
+            <block type="cms/block" name="cookie.notice">
+                <action method="setBlockId">
+                    <id>cookie_restriction_notice_block</id>
+                </action>
+            </block>
+        </reference>
+    </magetalk_index_index>
+    <helloworld_index_index>
+        <block type="page/html" name="root" output="toHtml" template="magentotutorial/helloworld/simple_page.phtml" />
+    </helloworld_index_index>
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <magentotutorial_helloworld>
+            <version>1.0.0</version>
+        </magentotutorial_helloworld>
+    </modules>
+    <global>
+        <models>
+            <magentotutorial_helloworld>
+                <class>Magentotutorial_Helloworld_Model</class>
+            </magentotutorial_helloworld>
+            <core>
+                <rewrite>
+                    <layout_update>Magentotutorial_Helloworld_Model_Layout_Update</layout_update>
+                </rewrite>
+            </core>
+        </models>
+        <events>
+            <controller_action_postdispatch>
+                <observers>
+                    <magentotutorial_helloworld_model_observer>
+                        <type>singleton</type>
+                        <class>Magentotutorial_Helloworld_Model_Observer</class>
+                        <method>checkForLayoutDisplayRequest</method>
+                    </magentotutorial_helloworld_model_observer>
+                </observers>
+            </controller_action_postdispatch>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <helloworld><!-- defines route name -->
+                <use>standard</use>
+                <args>
+                    <module>Magentotutorial_Helloworld</module>
+                    <frontName>helloworld</frontName>
+                </args>
+            </helloworld>
+        </routers>
+    </frontend>
+</config>

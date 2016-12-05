@@ -1,0 +1,20 @@
+<style>
+    .categorypost {
+        width: 700px;
+        margin: 5px auto;
+        padding: 10px;
+        border: 1px dotted;
+    }
+</style>
+
+<?php $collection = $this->getRequestCollection()->getItems();
+foreach ($collection as $item): ?>
+    <?php if ($item->getStatus() && $item->getPost_catagory_id() == $this->getRequest()->getParam('id')): ?>
+
+    <ul class="categorypost">
+        <li><a href="<?= $this->getUrl('blog/post/view/', ['id'=>$item->getBlogpost_id()]); ?>"><?= $item->getTitle() ?></a></li>
+        <li><?= $item->getShort_description() ?></li>
+    </ul>
+
+    <?php endif; ?>
+<?php endforeach; ?>

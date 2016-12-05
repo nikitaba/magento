@@ -1,0 +1,15 @@
+<style>
+    .title {
+        width: 700px;
+        margin: 5px auto;
+        padding: 10px;
+    }
+
+</style>
+
+<div class="title">
+    <?php $category = $this->getRequestRecord();?>
+    <h3><?= $category->getName() ?></h3>
+    <div><?= $category->getDescription() ?></a></div>
+    <div><?= $category->getImage() ?></div>
+</div>

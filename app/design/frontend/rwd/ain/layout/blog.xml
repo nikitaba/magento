@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<layout>
+    <default>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <blog_index_index>
+        <reference name="content">
+            <block type="blog/category" name="blog.hello" template="blog/blog.phtml"/>
+        </reference>
+    </blog_index_index>
+    <blog_category_view>
+        <reference name="content">
+            <block type="blog/category" name="category.hello" template="blog/category.phtml"/>
+            <block type="blog/post" name="category.post" template="blog/post.short.phtml"/>
+        </reference>
+    </blog_category_view>
+    <blog_post_view>
+        <reference name="content">
+            <block type="blog/post" name="post.hello" template="blog/post.long.phtml"/>
+        </reference>
+    </blog_post_view>
+</layout>
