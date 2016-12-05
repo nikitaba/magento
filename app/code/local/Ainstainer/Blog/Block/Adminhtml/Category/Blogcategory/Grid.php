@@ -22,15 +22,15 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Grid extends Mage_Ad
     {
 
         $this->addColumn('name', array(
-            'header'    => Mage::helper('blog')->__('Name'),
+            'header'    => Mage::helper('blog')->__('Category Name'),
             'align'     => 'left',
-            'index'     => 'title',
+            'index'     => 'name',
         ));
 
         $this->addColumn('description', array(
             'header'    => Mage::helper('blog')->__('Description'),
             'align'     => 'left',
-            'index'     => 'status',
+            'index'     => 'description',
         ));
 
         return parent::_prepareColumns();
