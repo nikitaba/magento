@@ -5,7 +5,7 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Edit extends Mage_Ad
     public function __construct()
     {
         $this->_objectId = 'category_id';
-        $this->_controller = 'adminhtml_post_blogcategory';
+        $this->_controller = 'adminhtml_category_blogcategory';
         $this->_blockGroup = 'blog';
         parent::__construct();
 
@@ -35,5 +35,4 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Edit extends Mage_Ad
             return Mage::helper('blog')->__('New Category');
         }
     }
-
 }

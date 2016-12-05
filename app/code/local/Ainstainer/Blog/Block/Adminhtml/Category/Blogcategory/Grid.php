@@ -2,7 +2,6 @@
 
 class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -56,5 +55,4 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Grid extends Mage_Ad
     {
         return $this->getUrl('*/*/edit', array('category_id' => $row->getId()));
     }
-
 }

@@ -2,10 +2,8 @@
 
 class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller_Action
 {
-
     public function indexAction()
     {
-
         $this->loadLayout();
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_post_blogpost'));
         $this->renderLayout();
@@ -13,14 +11,11 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
 
     public function newAction()
     {
-
         $this->_forward('edit');
-
     }
 
     public function editAction()
     {
-
         $id = $this->getRequest()->getParam('blogpost_id');
         Mage::register('blog_blogpost', Mage::getModel('blog/blogpost')->load($id));
         $blockObject = (array)Mage::getSingleton('adminhtml/session')->setBlockObject(true);
@@ -32,12 +27,10 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
         $this->loadLayout();
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_post_blogpost_edit'));
         $this->renderLayout();
-
     }
 
     public function saveAction()
     {
-
         try {
             $id = $this->getRequest()->getParam('blogpost_id');
             $blogpost = Mage::getModel('blog/blogpost')->load($id);
@@ -49,6 +42,7 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
             if(!$blogpost->getId()){
                 Mage::getSingleton('adminhtml/session')->addError('Cannot save the blogpost');
             }
+
         } catch(Exception $exception) {
             Mage::logException($exception);
             Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
@@ -58,26 +52,23 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
         Mage::getSingleton('adminhtml/session')->addSuccess('Blogpost was saved successfully');
 
         $this->_redirect('*/*/'.$this->getRequest()->getParam('back'.'index'), array('blogpost_id'=>$blogpost->getId()));
-
     }
 
     public function deleteAction()
     {
-
         $blogpost = Mage::getModel('blog/blogpost')
             ->setId($this->getRequest()->getParam('blogpost_id'))
             ->delete();
+
         if($blogpost->getId()){
             Mage::getSingleton('adminhtml/session')->addSuccess('Blogpost was deleted successfully!');
         }
 
         $this->_redirect('*/*/');
-
     }
 
     public function massStatusAction()
     {
-
         $statuses = $this->getRequest()->getParams();
 
         try {
@@ -88,6 +79,7 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
             foreach ($blogposts as $blogpost) {
                 $blogpost->setBlockStatus($statuses['status'])->save();
             }
+
         } catch(Exception $exception) {
             Mage::logException($exception);
             Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
@@ -97,12 +89,10 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
         Mage::getSingleton('adminhtml/session')->addSuccess('Blogposts were updated successfully!');
 
         return $this->_redirect('*/*/');
-
     }
 
     public function massDeleteAction()
     {
-
         $blogposts = $this->getRequest()->getParams();
 
         try {
@@ -113,6 +103,7 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
             foreach ($blogposts as $blogpost) {
                 $blogpost->delete();
             }
+
         } catch(Exception $exception) {
             Mage::logException($exception);
             Mage::getSingleton('adminhtml/session')->addError($exception->getMessage());
@@ -122,7 +113,5 @@ class Ainstainer_Blog_Adminhtml_PostController extends Mage_Adminhtml_Controller
         Mage::getSingleton('adminhtml/session')->addSuccess('Blogposts were deleted successfully!');
 
         return $this->_redirect('*/*/');
-
     }
-
 }

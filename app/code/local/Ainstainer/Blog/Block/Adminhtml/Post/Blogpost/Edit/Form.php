@@ -2,7 +2,6 @@
 
 class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -101,5 +100,4 @@ class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Edit_Form extends Mage_Admin
 
         return parent::_prepareForm();
     }
-
 }

@@ -2,7 +2,6 @@
 
 class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -45,7 +44,7 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Edit_Form extends Ma
             'required'  => true,
         ));
 
-        $fieldset->addField('image', 'textarea', array(
+        $fieldset->addField('image', 'image', array(
             'name'      => 'image',
             'label'     => Mage::helper('blog')->__('Image'),
             'title'     => Mage::helper('blog')->__('Image'),
@@ -61,5 +60,4 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory_Edit_Form extends Ma
 
         return parent::_prepareForm();
     }
-
 }

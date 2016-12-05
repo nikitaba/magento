@@ -10,6 +10,5 @@ class Ainstainer_Blog_Block_Adminhtml_Category_Blogcategory extends Mage_Adminht
         $this->_addButtonLabel = Mage::helper('blog')->__('Add New Blog Category');
         parent::__construct();
     }
-
 }
 

@@ -2,7 +2,6 @@
 
 class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-
     public function __construct()
     {
         $this->_controller = 'adminhtml_post_blogpost';
@@ -11,5 +10,4 @@ class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost extends Mage_Adminhtml_Block
         $this->_addButtonLabel = Mage::helper('blog')->__('Add New Blog Post');
         parent::__construct();
     }
-
 }

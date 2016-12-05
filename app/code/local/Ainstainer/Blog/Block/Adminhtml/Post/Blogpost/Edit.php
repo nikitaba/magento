@@ -35,5 +35,4 @@ class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Edit extends Mage_Adminhtml_
             return Mage::helper('blog')->__('New Blogpost');
         }
     }
-
 }

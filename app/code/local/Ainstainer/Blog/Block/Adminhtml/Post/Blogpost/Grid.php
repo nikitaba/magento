@@ -2,7 +2,6 @@
 
 class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -20,7 +19,6 @@ class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Grid extends Mage_Adminhtml_
 
     protected function _prepareColumns()
     {
-
         $this->addColumn('title', array(
             'header'    => Mage::helper('blog')->__('Title'),
             'align'     => 'left',
@@ -91,5 +89,4 @@ class Ainstainer_Blog_Block_Adminhtml_Post_Blogpost_Grid extends Mage_Adminhtml_
     {
         return $this->getUrl('*/*/edit', array('blogpost_id' => $row->getId()));
     }
-
 }
