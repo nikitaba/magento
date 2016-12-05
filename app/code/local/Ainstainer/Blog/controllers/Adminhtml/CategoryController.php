@@ -71,7 +71,7 @@ class Ainstainer_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Contro
         $categories = $this->getRequest()->getParams();
 
         try {
-            $categories = Mage::getModel('blog/blogpost')
+            $categories = Mage::getModel('blog/category')
                 ->getCollection()
                 ->addFieldTofilter('category_id', array('in' => $categories['massaction']));
 
